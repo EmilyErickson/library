@@ -1,15 +1,100 @@
 body {
     background-color: rgb(224, 157, 157);
-    font-family: Arial, Helvetica, sans-serif;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* display: grid;
+    grid-template-rows: 50px 200px 50px; */
+    /* place-content: center; */
+    gap: 12px;
 }
 
-.main {
-    background-color: lightblue;
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-    align-self: center;
-    padding: 15px;
+.header {
+    color: lightblue;
+    font-size: 3.5rem;
+    font-weight: bold;
+    font-family: cursive;
+    grid-row: 1 / 2;
+    text-shadow: 2px 4px 2px black;
 }
+
+.books {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.bookCard {
+    background-color: lightgray;
+    width: 150px;
+    height: 200px;
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookCard p {
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.bookCard button {
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100px;
+}
+
+.read {
+    background-color: rgb(130, 189, 130);
+}
+.notRead {
+    background-color: rgb(240, 90, 113);
+}
+
+
+.deleteBtn {
+    background-color: rgb(240, 90, 113);
+}
+
+.addBook {
+    background-color: lightblue;
+    border-radius: 15px;
+    padding: 15px;
+    width: 150px;
+    box-shadow: 0 8px 4px -4px black;
+}
+
+
+.newBookInfo {
+    display: none;
+    background-color: lightgray;
+    width: 150px;
+    height: 200px;
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: small;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.newBookInfo input {
+    align-self: center;
+    margin: 10px;
+    background-color: rgb(241, 210, 215);
+    border-radius: 5px;
+}
+
+/* .newBookCard {
+    display: none;
+    background-color: aqua;
+} */
