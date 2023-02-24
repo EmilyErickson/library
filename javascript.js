@@ -80,10 +80,3 @@ function addBookToLibrary() {
 }
 
 addBookToLibrary();
-
-//   let test = document.querySelector(`.books .${title}`);
-//   if (test != null) {
-//     document.querySelector(".newBookInfo").style.display = "none";
-//     document.querySelector(".newBookInfo").reset();
-//     return;
-//   }
