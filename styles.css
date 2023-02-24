@@ -4,9 +4,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* display: grid;
-    grid-template-rows: 50px 200px 50px; */
-    /* place-content: center; */
     gap: 12px;
 }
 
@@ -15,13 +12,12 @@ body {
     font-size: 3.5rem;
     font-weight: bold;
     font-family: cursive;
-    grid-row: 1 / 2;
     text-shadow: 2px 4px 2px black;
 }
 
 .books {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 8px;
 }
 
@@ -93,8 +89,3 @@ body {
     background-color: rgb(241, 210, 215);
     border-radius: 5px;
 }
-
-/* .newBookCard {
-    display: none;
-    background-color: aqua;
-} */
