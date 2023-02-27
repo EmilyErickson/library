@@ -10,21 +10,23 @@ function Book(title, author, pages, read) {
   };
 }
 
-let theHobbit = new Book("The Hobbit", "J.R.R Tolkien", "259", "Not Read");
-
-console.log(theHobbit.info());
-
 function newBook(event) {
   event.preventDefault();
   let title = document.querySelector("#title").value.replace(/\s+/g, "");
-  if (myLibrary.includes(`${title}`)) {
+  let author = document.querySelector("#author").value.toString();
+  let pages = document.querySelector("#pages").value.toString();
+  let areadyread = document.querySelector("#read").checked;
+
+  let addBook = new Book(`${title}`, `${author}`, `${pages}`, `${areadyread}`);
+
+  if (inLibrary(addBook)) {
     document.querySelector(".newBookInfo").style.display = "none";
     document.querySelector(".newBookInfo").reset();
     return;
   }
 
-  myLibrary.push(`${title}`);
-  console.log(myLibrary);
+  myLibrary.push(addBook);
+  console.log({ myLibrary });
   let newBookCard = document.createElement("div");
   newBookCard.classList.add("bookCard", `${title}`);
   document.querySelector(".books").appendChild(newBookCard);
@@ -61,12 +63,35 @@ function newBook(event) {
 
   document.querySelector(`.${title}`).appendChild(read);
 
+  function inLibrary() {
+    let bookDuplicate = false;
+    for (let i = 0; i < myLibrary.length; i++) {
+      if (myLibrary[i].title === addBook.title) {
+        bookDuplicate = true;
+      } else {
+        bookDuplicate = false;
+      }
+    }
+    return bookDuplicate;
+  }
+
+  function removeFromLibrary() {
+    for (let i = 0; i < myLibrary.length; i++) {
+      if (myLibrary[i].title === addBook.title) {
+        let index = myLibrary.indexOf(addBook);
+        myLibrary.splice(index, 1);
+      }
+      console.log({ myLibrary });
+    }
+  }
+
   let newBookDelete = document.createElement("button");
   newBookDelete.classList.add("deleteBtn");
   newBookDelete.textContent = "Delete";
   document.querySelector(`.${title}`).appendChild(newBookDelete);
   newBookDelete.addEventListener("click", () => {
     document.querySelector(`.${title}`).remove();
+    removeFromLibrary(addBook);
   });
   document.querySelector(".newBookInfo").style.display = "none";
   document.querySelector(".newBookInfo").reset();
