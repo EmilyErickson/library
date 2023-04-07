@@ -1,4 +1,5 @@
 let myLibrary = [];
+let form = document.querySelector("form");
 
 class Book {
   constructor(title, author, pages, read) {
@@ -12,11 +13,55 @@ class Book {
   }
 }
 
-function newBook(event) {
+function validate(event) {
   event.preventDefault();
+  let title = document.querySelector("#title");
+  let titleError = document.querySelector(".titleError");
+  let authorError = document.querySelector(".authorError");
+  let pagesError = document.querySelector(".pagesError");
+  let author = document.querySelector("#author");
+  let pages = document.querySelector("#pages");
+  let titleValidity = title.validity;
+  if (titleValidity.valueMissing) {
+    titleError.classList.remove("hidden");
+    titleError.classList.add("active");
+    titleError.textContent = "Please put in the book title";
+  } else {
+    titleError.classList.add("hidden");
+  }
+  let authorValidity = author.validity;
+  if (authorValidity.valueMissing) {
+    authorError.classList.remove("hidden");
+    authorError.classList.add("active");
+    authorError.textContent = "Please put in the author";
+  } else {
+    authorError.classList.add("hidden");
+  }
+  let pagesValidity = pages.validity;
+  if (pagesValidity.valueMissing) {
+    pagesError.classList.remove("hidden");
+    pagesError.classList.add("active");
+    pagesError.textContent = "Please add the number of pages";
+  } else {
+    pagesError.classList.add("hidden");
+  }
+  if (
+    title.checkValidity() &&
+    author.checkValidity() &&
+    pages.checkValidity()
+  ) {
+    newBook();
+  }
+  // form.submit();
+}
+
+function newBook() {
   let title = document.querySelector("#title").value.replace(/\s+/g, "");
   let author = document.querySelector("#author").value.toString();
   let pages = document.querySelector("#pages").value.toString();
+
+  // author.value.toString();
+  // pages.value.toString();
   let areadyread = document.querySelector("#read").checked;
 
   let addBook = new Book(`${title}`, `${author}`, `${pages}`, `${areadyread}`);
@@ -102,7 +147,7 @@ function newBook(event) {
 function addBookToLibrary() {
   document.querySelector(".addBook").addEventListener("click", () => {
     document.querySelector(".newBookInfo").style.display = "flex";
-    document.querySelector("#saveBook").addEventListener("click", newBook);
+    document.querySelector("#saveBook").addEventListener("click", validate);
   });
 }
 
