@@ -13,13 +13,16 @@
 
     </div>
     <button class="addBook">Add Book</button>
-    <form class="newBookInfo">
+    <form class="newBookInfo" novalidate>
         <label for="title" class="title">
-        <input type="text" id="title" placeholder="Title"></label>
+        <input type="text" id="title" placeholder="Title" required="required">
+        <span class="error titleError hidden" aria-live="polite"></span></label>
         <label for="author" class="author">
-        <input type="text" id="author" placeholder="Author"></label>
+        <input type="text" id="author" placeholder="Author" required> 
+        <span class="error authorError hidden" aria-live="polite"></span></label>
         <label for="pages" class="pages">
-        <input type="number" id="pages" placeholder="Pages"></label>
+        <input type="number" id="pages" placeholder="Pages" required>
+        <span class="error pagesError hidden" aria-live="polite"></span></label>
         <label for="read">Read
             <input type="checkbox" id="read" name="read"/></label>
         <input type="submit" class="saveBook" id="saveBook" value="Save Book"/>
