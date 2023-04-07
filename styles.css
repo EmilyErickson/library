@@ -86,6 +86,31 @@ body {
 .newBookInfo input {
     align-self: center;
     margin: 10px;
+    margin-bottom: 0;
     background-color: rgb(241, 210, 215);
     border-radius: 5px;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+.error {
+    width: 100%;
+    padding: 3px;
+    margin: 13px;
+    font-size: 75%;
+    color: white;
+    background-color: #900;
+    border-radius: 0 0 5px 5px;
+    box-sizing: border-box;
+}
+.pagesError {
+    margin: 1px;
+}
+.authorError {
+    margin: 20px;
+}
+.error.hidden {
+    display: none;
 }
